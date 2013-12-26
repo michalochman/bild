@@ -1,4 +1,6 @@
 @import "base"
+@import "bootstrap"
+@import "calendas"
 
 /*!
  *
@@ -74,21 +76,23 @@ body
   +clearfix
   margin: 8px
   @media #{$mq-medium}, #{$mq-wide}
-    margin: 0 auto
+    margin: 0 auto $leading
     max-width: $leading*24
   @media #{$mq-medium-force}
-    margin: 0 8px
+    margin: 0 8px $leading
     max-width: $leading*24
   h1
     +float-left
     font-size: 24px
     text-transform: uppercase
+    small
+      color: $color
+  h2
+    clear: both
+    font-size: 14px
   h1, p
-    line-height: $leading*2
+    line-height: $leading
     margin: 0
-
-.site-feeds
-  +float-right
 
 .post-time, .post-category
   color: $faint-color
@@ -319,12 +323,13 @@ q
 .up-trigger, .prev-trigger, .next-trigger
   color: $color
   display: none
+  font-size: 20px
   &:hover, &:visited, &:visited:hover
     color: $color
 
 .up-trigger
   right: 0
-  top: 3px
+  top: 4px
 
 .prev-trigger
   bottom: 0
