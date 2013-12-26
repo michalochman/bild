@@ -1,0 +1,110 @@
+@import "base"
+
+.navi-trigger
+  color: $color
+  left: 0
+  top: 3px
+  &:hover, &:visited, &:visited:hover
+    color: $color
+
+  .admin-bar &
+    top: 31px
+
+.navi-trigger-open
+  background: $color
+  color: #fff
+  overflow: hidden
+  +transition(transform 0.1s ease-in-out)
+  +translateX(-$leading*1.5)
+  .navi-open-full ~ &, .navi-open-icons ~ &
+    +translateX(0px)
+  &:hover, &:visited:hover
+    color: #fff
+
+.navi
+  font-family: $sans
+  background: $color
+  color: #fff
+  margin: 0
+  overflow: hidden
+  white-space: nowrap
+  position: fixed
+  top: 42px
+  width: $leading*1.5
+  z-index: 100
+
+  .admin-bar &
+    top: 70px
+
+  +transition(transform 0.1s ease-in-out, width 0.1s ease-in-out)
+  +translateX(-$leading*1.5)
+
+  &.navi-open-full, &.navi-open-icons
+    +translateX(0px)
+
+  &.navi-open-icons
+    width: $leading*1.5
+
+  &.navi-open-full
+    width: $leading*10
+
+.navi-sub
+  margin: 0
+
+.navi-item
+  line-height: $leading*1.5
+  overflow: hidden
+
+  .icon
+    color: #fff
+    display: block
+    &:hover, &:visited:hover
+      color: #fff
+
+  .navi-sub &
+    height: 0
+    line-height: $leading*1.5
+    padding-left: $leading*0.5
+    overflow: hidden
+    +transition(height 0.1s ease-in-out)
+    .navi-open-full &
+      height: $leading*1.5
+
+.navi-item-search
+  position: relative
+
+.form-search
+  padding-left: $leading*1.5
+  label
+    margin: 0
+
+.input-search
+  background: $color
+  border: none
+  height: $leading
+  line-height: $leading
+  margin-top: 7px
+  outline: none
+  color: #fff
+  &::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder
+    color: #fff
+
+  // hide placeholder when active in Chrome
+  &:focus::-webkit-input-placeholder, .no-touch .navi-item.search:hover &:focus::-webkit-input-placeholder
+    color: transparent
+
+.icon span
+  display: none
+
+.icon::before
+  width: $leading*1.5
+
+.icon-search
+  background: transparent
+  border: none
+  outline: none
+  padding: 0
+  position: absolute
+  top: 0
+  left: 0
+  height: $leading*1.5

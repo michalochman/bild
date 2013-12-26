@@ -1,0 +1,348 @@
+@import "base"
+
+/*!
+ *
+ Theme Name: Bild
+ Author: Michal Ochman <michoch@gmail.com>
+ Author URI: http://blog.scur.pl
+ Description: Bild
+ Version: 1.0
+ License: CC BY-NC-SA 3.0
+ License URI: http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US
+ Tags: white, black, minimal, light, one-column, fluid-width,
+ */
+
+.admin-bar
+  .loader
+    top: 28px
+  .navi
+    top: 70px
+
+a
+  color: #428bca
+  transition: color 0.25s linear
+  &:visited
+    color: #8B42CA
+  &:visited:hover
+    color: #642A96
+
+html
+  font-family: 'default'
+  @media #{$mq-medium}
+    font-family: 'medium'
+  @media #{$mq-wide}
+    content: 'wide'
+    font-family: 'wide'
+
+body
+  color: $color
+  font-family: $serif
+  font-size: $size
+  line-height: $leading
+  padding-top: $leading
+  text-rendering: optimizeLegibility
+  &:after
+    content: 'default'
+    display: none
+    @media #{$mq-medium}
+      content: 'medium'
+    @media #{$mq-wide}
+      content: 'wide'
+
+.loader
+  border-top: 3px solid $color
+  width: 100%
+  position: fixed
+  left: 0
+  top: 0
+  z-index: 100
+  &::before
+    +transition(transform 3s cubic-bezier(0.250, 0.460, 0.450, 0.940))
+    +translateX(-100%)
+    background: red
+    content: ''
+    display: block
+    height: 3px
+    width: 100%
+    position: absolute
+    top: -3px
+    left: 0
+    .page-loading &
+      +translateX(0)
+
+.site-header
+  +clearfix
+  margin: 8px
+  @media #{$mq-medium}, #{$mq-wide}
+    margin: 0 auto
+    max-width: $leading*24
+  @media #{$mq-medium-force}
+    margin: 0 8px
+    max-width: $leading*24
+  h1
+    +float-left
+    font-size: 24px
+    text-transform: uppercase
+  h1, p
+    line-height: $leading*2
+    margin: 0
+
+.site-feeds
+  +float-right
+
+.post-time, .post-category
+  color: $faint-color
+  display: block
+  line-height: $leading
+  margin: $leading auto #{ -$leading}
+  max-width: $leading*24
+  font-size: $leading
+  font-family: Source Sans Pro
+  @media #{$mq-wide}
+    margin: -$leading auto
+    text-align: right
+    position: relative
+    left: -$leading*25 // width - $leading
+    top: $leading*1.5
+  @media #{$mq-medium-force}
+    margin: $leading 8px #{ -$leading}
+
+.post-category
+  font-size: 18px
+  top: 70px
+
+.drop-cap
+  &:first-letter
+    background: transparent
+    color: inherit
+    float: left
+    font-family: $serif
+    font-size: 3em
+    font-weight: bold
+    line-height: 1
+    margin: 6px 6px -9px 0
+    padding: 0
+    text-indent: 0
+
+  // Combats our sibling paragraphs styling and indentation
+  // As not to ruin our beautiful drop caps.
+  p + &
+    text-indent: 0
+    margin-top: 0
+
+.pull-quote
+  border: none
+  padding: $leading $leading*1.5
+  position: relative
+  text-align: justify
+  max-width: $leading*42
+  @media #{$mq-medium}
+    padding: $leading 78px
+  &:before, &:after
+    color: #ddd
+    font-size: 126px
+    letter-spacing: -7px
+    position: absolute
+    z-index: -1
+    @media #{$mq-medium}
+      font-size: 252px
+      letter-spacing: -19px
+  &:before
+    // content: '“'
+    content: '‘‘'
+    left: -7px
+    top: 78px
+    @media #{$mq-medium}
+      left: -3px
+      top: 130px
+  &:after
+    //content: '”'
+    content: '’’'
+    bottom: -$leading
+    right: 0px
+    @media #{$mq-medium}
+      bottom: -52px
+      right: 18px
+
+h1, h2, h3, h4, h5, h6, .lead, .post-time, .post-category
+  font-family: $sans
+  line-height: $leading
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, dt, .comment-form
+  margin: 8px
+  @media #{$mq-medium}, #{$mq-wide}
+    margin: $leading auto
+    max-width: $leading*24
+  @media #{$mq-medium-force}
+    margin: $leading 8px
+    max-width: $leading*24
+
+h1
+  font-size: 42px
+  line-height: $leading*2
+  &.huge
+    font-size: 84px
+    line-height: $leading*3
+  a, a:visited, a:hover, a:visited:hover
+    color: $color
+    text-decoration: none
+  
+h2
+  font-size: 32px
+
+h3 
+  font-size: 24px
+
+h4 
+  font-size: 18px
+
+h5 
+  font-size: 14px
+
+h6 
+  font-size: 12px
+
+.lead
+  font-size: 21px
+  line-height: 31px
+  &.drop-cap:first-letter
+    font-size: 5em
+    margin-bottom: -20px
+
+p
+  a
+    img
+      width: 100%
+  .media-heading ~ &
+    margin: 0 auto
+
+small
+  font-size: 13px
+
+.pusher
+  float: left
+  width: 0
+  height: $leading
+
+  &.right
+    float: right
+
+  @for $i from 2 through 6
+    &.push-#{$i}
+      +pusher-push($i)
+
+aside
+  clear: left
+  font-family: $sans
+  font-size: 19px
+  font-weight: bold
+  float: left
+  line-height: $leading
+  margin: 13px 0
+  margin-left: -156px
+  margin-right: $leading
+  text-align: right
+  width: 312px
+
+  .pusher + &
+    display: none
+    @media #{$mq-wide}
+      display: block
+
+  .pusher.right + &
+    clear: right
+    float: right
+    margin-left: $leading
+    margin-right: -156px
+    text-align: left
+
+    &+ p
+      text-align: justify
+
+blockquote, .iframe
+  margin: $leading*2 auto
+  max-width: 1000px
+  .comment &
+    margin: $leading auto
+
+blockquote
+  padding: $leading*0.5 $leading
+  p
+    line-height: $leading
+    margin: 0
+    max-width: 100%
+  p + p
+    text-indent: $leading*2
+    &.noindent
+      margin-top: $leading
+      text-indent: 0
+    small
+      text-indent: 0
+
+.iframe
+  height: 75vmin
+  @media #{$mq-wide}
+    height: $leading*24
+
+blockquote small
+  line-height: $leading
+
+q
+  quotes: inherit
+
+.text-col-2 
+  @media #{$mq-wide}
+    +column-count(2)
+    +column-gap($leading*2)
+    vertical-align: top
+
+
+.content
+  position: relative
+  +transition(transform 0.3s ease-in-out)
+  .navi-open-icons ~ &
+    +translateX($leading*1.5)
+  .navi-open-full ~ &
+    +translateX($leading*10)
+  .page-loading &
+    +transition(opacity 0.5s ease-out)
+    +transform-style(preserve-3d)
+    opacity: 0.25
+  section
+    @media #{$mq-wide}
+      margin: $leading auto
+      max-width: $leading*24
+    @media #{$mq-medium-force}
+      margin: $leading 8px
+      max-width: $leading*24
+
+.up-trigger, .prev-trigger, .next-trigger
+  color: $color
+  display: none
+  &:hover, &:visited, &:visited:hover
+    color: $color
+
+.up-trigger
+  right: 0
+  top: 3px
+
+.prev-trigger
+  bottom: 0
+  left: 0
+
+.next-trigger
+  bottom: 0
+  right: 0
+
+pre
+  +border-radius(0)
+  border: none
+  margin: $leading auto
+  max-width: $leading*32
+
+.media-heading
+  margin: 0
+
+@import "icons"
+@import "navigation"
+@import "carousel"
