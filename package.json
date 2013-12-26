@@ -1,0 +1,30 @@
+{
+    "name": "Bild",
+    "version": "1.0.0",
+    "description": "Bild WordPress Theme",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:michalochman/bild.git"
+    },
+    "bugs": {
+        "email": "michal.ochman@grandparade.co.uk"
+    },
+    "author": {
+        "name": "Michał Ochman",
+        "email": "<michoch@gmail.com>"
+    },
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "~0.4.x",
+        "grunt-contrib-cssmin": "*",
+        "grunt-contrib-compass": "*",
+        "grunt-contrib-concat": "*",
+        "grunt-contrib-copy": "*",
+        "grunt-contrib-jshint": "*",
+        "grunt-contrib-uglify": "*"
+    }
+}
