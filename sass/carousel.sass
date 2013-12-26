@@ -2,14 +2,15 @@
 
 .carousel
   margin: $leading*2 auto
-
+  .item
+    img
+      margin: 0 auto
+      max-height: 97.5vmin
   .item.video
     background: #000
     text-align: center
-
   .item > *
     margin: 0 auto
-
   &:hover
     .carousel-control, .carousel-indicators
       opacity: 0.75
