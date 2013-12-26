@@ -44,6 +44,8 @@
     <a href="#content" class="up-trigger trigger-icon icon icon-circle-up js-up-trigger"><span>Up</span></a>
 
     <header class="site-header">
-        <h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
-        <p class="site-feeds"><a href="<?php bloginfo('atom_url'); ?>">atom</a>, <a href="<?php bloginfo('rss_url'); ?>">rss</a></p>
+        <h1>
+            <a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+            <small> – <?php bloginfo('description'); ?></small>
+        </h1>
     </header>

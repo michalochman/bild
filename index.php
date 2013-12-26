@@ -1,5 +1,17 @@
 <?php get_header() ?>
 
+<?php
+$prev_page = is_paged() ? get_previous_posts_page_link() : null;
+$next_page = get_next_posts_page_link();
+?>
+
+<?php if ($next_page): ?>
+    <a href="<?php echo $next_page ?>" class="prev-trigger trigger-icon icon icon-circle-left js-prevnext-trigger"><span>Previous Post</span></a>
+<?php endif; ?>
+<?php if ($prev_page): ?>
+    <a href="<?php echo $prev_page ?>" class="next-trigger trigger-icon icon icon-circle-right js-prevnext-trigger"><span>Next Post</span></a>
+<?php endif; ?>
+
 <a href="#" class="navi-trigger trigger-icon icon icon-menu js-navi-trigger" data-trigger="navigation"><span>Menu</span></a>
 
 <?php get_sidebar() ?>
@@ -29,9 +41,6 @@
     </article>
 
     <?php endwhile; ?>
-
-    <?php previous_posts_link(); ?>
-    <?php next_posts_link(); ?>
 
 <?php endif; ?>
 
