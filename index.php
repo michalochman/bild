@@ -6,10 +6,10 @@ $next_page = get_next_posts_page_link();
 ?>
 
 <?php if ($next_page): ?>
-    <a href="<?php echo $next_page ?>" class="prev-trigger trigger-icon icon icon-circle-left js-prevnext-trigger"><span>Previous Post</span></a>
+<a href="<?php echo $next_page ?>" class="prev-trigger trigger-icon icon icon-circle-left js-prevnext-trigger" data-toggle="tooltip" data-placement="right" title="Next Page"><span>Next Page</span></a>
 <?php endif; ?>
 <?php if ($prev_page): ?>
-    <a href="<?php echo $prev_page ?>" class="next-trigger trigger-icon icon icon-circle-right js-prevnext-trigger"><span>Next Post</span></a>
+<a href="<?php echo $prev_page ?>" class="next-trigger trigger-icon icon icon-circle-right js-prevnext-trigger" data-toggle="tooltip" data-placement="left" title="Previous Page"><span>Previous Page</span></a>
 <?php endif; ?>
 
 <a href="#" class="navi-trigger trigger-icon icon icon-menu js-navi-trigger" data-trigger="navigation"><span>Menu</span></a>
