@@ -21,13 +21,13 @@
 .carousel-235x100
   $height: 1/2.35 * 100 // 2.35:1 ratio in %
   height: #{$height}vw
-  video, img
+  .video, video, img, iframe
     height: #{$height}vw!important
 
 .carousel-160x90
   $height: 9/16 * 100 // 16:9 ratio in %
   height: #{$height}vw
-  video, img
+  .video, video, img, iframe
     height: #{$height}vw!important
 
 .carousel-vertical
@@ -45,6 +45,9 @@
   background: none!important
   color: #fff
   opacity: 0.25
+  @media #{$mq-medium}, #{$mq-wide}
+    bottom: 50px
+    top: 85px
   &:hover
     opacity: 1!important
   &:hover, &:visited, &:visited:hover
@@ -55,6 +58,8 @@
   margin: 0 0 0 -30%
   max-width: 100%
   opacity: 0.125
+  @media #{$mq-medium}, #{$mq-wide}
+    bottom: 35px
   &:hover
     opacity: 1!important
   &:hover, &:visited, &:visited:hover
