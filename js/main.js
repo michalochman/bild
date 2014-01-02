@@ -2,7 +2,6 @@
     $(function(){
         triggerNavigation();
         triggerScrollTop();
-        triggerPreviousNextPost();
         triggerTooltips();
         initMQ();
     });
@@ -49,7 +48,7 @@
 
     function triggerScrollTop() {
         var $up_trigger = $('.js-up-trigger');
-        $up_trigger.on('click', function (e) {
+        $up_trigger.hide().on('click', function (e) {
             e.preventDefault();
             $('html, body').animate({ scrollTop: 0 }, 500);
         });
@@ -58,19 +57,6 @@
                 $up_trigger.fadeIn();
             } else {
                 $up_trigger.fadeOut();
-            }
-        });
-    }
-
-    function triggerPreviousNextPost() {
-        var $prevnext_triggers = $('.js-prevnext-trigger');
-        var content_height = $('#content').outerHeight();
-        $(window).on('scroll.prevnext.trigger resize.prevnext.trigger', function () {
-            // TODO: fix for short posts
-            if ($(this).scrollTop() > content_height / 3) {
-                $prevnext_triggers.fadeIn();
-            } else {
-                $prevnext_triggers.fadeOut();
             }
         });
     }
