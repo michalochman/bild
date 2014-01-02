@@ -214,17 +214,19 @@ p
 small
   font-size: 13px
 
-.pusher
-  float: left
-  width: 0
-  height: $leading
-
+.pushed
+  &::before
+    content: ''
+    float: left
+    width: 0
+    height: $leading
   &.right
-    float: right
-
-  @for $i from 2 through 6
-    &.push-#{$i}
-      +pusher-push($i)
+    &::before
+      float: right
+  @for $lines from 2 through 6
+    &.push-#{$lines}
+      &::before
+        height: $lines * $leading
 
 aside
   clear: left
@@ -239,18 +241,17 @@ aside
   text-align: right
   width: 312px
 
-  .pusher + &
+  .pushed > &
     display: none
     @media #{$mq-wide}
       display: block
 
-  .pusher.right + &
+  .pushed.right > &
     clear: right
     float: right
     margin-left: $leading
     margin-right: -156px
     text-align: left
-
     &+ p
       text-align: justify
 
